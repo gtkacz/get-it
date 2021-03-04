@@ -17,7 +17,7 @@ def read_file(path):
     if extension in target:
         with open(path, 'rt', encoding='utf-8') as file:
             data=file.read()
-        return data
+        return (data).encode()
     else:
         with open(path, 'rb') as file:
             data=file.read()
@@ -41,7 +41,7 @@ def load_data(path):
 
 def load_template(name):
     path=has_directory(name, 'templates')
-    return read_file(path)
+    return (read_file(path)).decode(encoding='utf-8')
 
 def build_response(body='', code=200, reason='OK', headers=''):
     args = [str(code), reason]
