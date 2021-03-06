@@ -1,8 +1,12 @@
 from pathlib import Path
 import json
 
-def extract_route(string):
-    return string.split()[1][1:]
+
+def extract_route(request):
+    if request.startswith('GET'):
+        return request.split()[1][1:]
+    elif request.startswith('POST'):
+        pass        
 
 def is_path(subject):
     if not type(subject) is Path:

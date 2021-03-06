@@ -39,6 +39,12 @@ body {
 .logo {
 	width: 5%;
 	margin: 0.75rem;
+  transition: transform 150ms ease;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.35));
+  transform: scale(105%);
 }
 
 .subtitle { 
@@ -68,6 +74,12 @@ form {
   font-weight: 550;
   border: none;
   margin: 0.75rem;
+  position: relative;
+  transition: color 250ms ease;
+}
+
+.form-card-title:hover {
+  color: #9b870c;
 }
 
 .autoresize {
@@ -79,6 +91,11 @@ form {
   resize: none;
 	margin-bottom: 0.1rem;
 
+}
+
+.autoresize:hover {
+  color: #9b870c;
+  transition: color 250ms ease;
 }
 
 .card-container {
@@ -107,7 +124,17 @@ form {
   margin-left: 0.15rem;
   border-radius: 0.35rem;
   box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgb(0, 0, 0, 0.05) inset;
+  transition: box-shadow 750ms;
+  transition: transform 250ms ease;
+  position: relative;
 }
+
+.card:hover,
+.card:focus {
+  box-shadow: 0 3px 25px rgba(0, 0, 0, 0.5), 0px 0px 5px rgba(0, 0, 0, 0.1) inset;
+  transform: rotate(0deg) scale(105%);
+}
+
 
 .card-title {
     font-family: 'Permanent Marker', cursive;
@@ -129,6 +156,7 @@ form {
   position: relative;
   display: block;
   padding: 10px 15px;
+  cursor: pointer;
 
   height: 2.5rem;
 
@@ -150,6 +178,7 @@ form {
   margin-left: 0.75rem;
   margin-bottom: 0.75rem;
   margin-top: -0.65rem;
+  transition: box-shadow 250ms ease;
 }
 
 .btn > * {
@@ -183,6 +212,11 @@ form {
   padding-top: 120%;
 
   transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+}
+
+.btn:hover,
+.btn:focus {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.6), 0px 5px 10px rgb(255, 249, 171, 0.6) inset;
 }
 
 
