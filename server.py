@@ -10,7 +10,7 @@ SERVER_PORT = 8080
 NOTE_TEMPLATE = '''  
 '''
 
-RRESPONSE_TEMPLATE = 'HTTP/1.1 200 OK'
+RRESPONSE_TEMPLATE = 'HTTP/1.1 200 OK' 
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
