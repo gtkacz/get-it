@@ -3,10 +3,11 @@ import json
 
 
 def extract_route(request):
-    if request.startswith('GET'):
-        return request.split()[1][1:]
-    elif request.startswith('POST'):
-        return ''        
+    return request.split()[1][1:]
+    # if request.startswith('GET'):
+    #     return request.split()[1][1:]
+    # elif request.startswith('POST'):
+    #     return ''        
 
 def is_path(subject):
     if not type(subject) is Path:

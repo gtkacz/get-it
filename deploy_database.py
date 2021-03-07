@@ -1,8 +1,12 @@
 from database import Database, Note
+from utils import load_data
 
-db = Database('banco-teste')
-db.add(Note(title='Pão doce', content='Abra o pão e coloque o seu suco em pó favorito.'))
-db.add(Note(title=None, content='Lembrar de tomar água'))
-notes = db.get_all()
-for note in notes:
-    print(f'Anotação {note.id}:\n  Título: {note.title}\n  Conteúdo: {note.content}\n')
+
+db = Database('notes')
+
+for dados in load_data('notes.json'):
+    title = dados['titulo']
+    id = None
+    details = dados['detalhes']
+    aa = Note(id, title, details)
+    db.add(aa)

@@ -27,6 +27,7 @@ while True:
     print(request)
 
     route = extract_route(request)
+    print(request.split()[1])
     filepath = CUR_DIR / route
     if filepath.is_file():
         response = build_response() + read_file(filepath)

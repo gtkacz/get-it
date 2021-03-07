@@ -34,7 +34,7 @@ body {
 	align-content: center;
 	box-shadow: 0 1px 24px rgba(0, 0, 0, 0.75);
 	margin-bottom: 1rem;
-  transition: box-shadow 500ms ease;
+  transition: box-shadow 500ms ease-in-out;
 }
 
 .appbar:hover {
@@ -44,20 +44,70 @@ body {
 .logo {
 	width: 5%;
 	margin: 0.75rem;
-  transition: transform 150ms ease;
+  transition: transform 150ms ease-in-out;
 }
 
 .logo:hover {
   filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.35));
-  transform: scale(105%);
+  transform: scale(103%);
 }
 
 .subtitle { 
   align-self: center;
   margin-left: 0.5rem;
   font-size: 1.25rem;
+  transition: background-image 200ms ease-in-out;
 }
 
+.subtitle:hover{
+  background-image: linear-gradient(90deg, #444212, #000);
+  
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.info-card {
+  width: 4 em;
+  background-color: #000;
+  padding: 25px, 30px;
+  border-radius: 25px;
+  position: absolute;
+  clip-path: circle(5% at 93.5% 15%);
+  transition: all 500ms ease-in-out;
+}
+
+.info-card:hover{
+  clip-path: circle(75%);
+}
+
+.info-card .info-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  right: 10px;
+  top: 10px;
+  border-radius: 50%;
+  line-height: 40px;
+  transition: all 250ms ease-in-out;
+}
+
+.info-text-title {
+  color: white;
+  text-transform: capitalize;
+}
+
+/* .info-text {
+  color: ;
+} */
 
 form {
 	display: flex;
@@ -71,7 +121,7 @@ form {
   box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4);
   margin-bottom: 1.5rem;
   border-radius: 0.35rem;
-  transition: box-shadow 250ms ease;
+  transition: box-shadow 250ms ease-in-out;
 }
 
 form:hover{
@@ -85,7 +135,7 @@ form:hover{
   border: none;
   margin: 0.75rem;
   position: relative;
-  transition: color 250ms ease;
+  transition: color 250ms ease-in-out;
 }
 
 .form-card-title:hover {
@@ -105,7 +155,7 @@ form:hover{
 
 .autoresize:hover {
   color: #9b870c;
-  transition: color 250ms ease;
+  transition: color 250ms ease-in-out;
 }
 
 .card-container {
@@ -116,6 +166,7 @@ form:hover{
   margin-bottom: 3rem;
   margin-right: 4rem;
   margin-left: 4rem;
+  position: absolute;
 
 }
 
@@ -135,8 +186,12 @@ form:hover{
   border-radius: 0.35rem;
   box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgb(0, 0, 0, 0.05) inset;
   transition: box-shadow 750ms;
-  transition: transform 250ms ease;
+  transition: transform 250ms ease-in-out;
   position: relative;
+}
+
+.card-drag{
+  position: absolute;
 }
 
 .card:hover,
@@ -188,7 +243,7 @@ form:hover{
   margin-left: 0.75rem;
   margin-bottom: 0.75rem;
   margin-top: -0.65rem;
-  transition: box-shadow 250ms ease;
+  transition: box-shadow 250ms ease-in-out;
 }
 
 .btn > * {
@@ -221,7 +276,7 @@ form:hover{
   width: 120%;
   padding-top: 120%;
 
-  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+  transition: width 0.2s ease-in-out-out, padding-top 0.2s ease-in-out-out;
 }
 
 .btn:hover,
