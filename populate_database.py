@@ -2,8 +2,12 @@ from database import Database, Note
 from utils import load_data
 import os
 
-def POPULATE_DB(DB_NAME):
-    DB_PATH=DB_NAME + '.db'
+def populate_db(DB_NAME):
+    if DB_NAME.endswith('.db'):
+        DB_NAME = DB_NAME[:-3]
+        
+    DB_PATH = DB_NAME + '.db'
+    
     if os.path.exists(DB_PATH):
         os.remove(DB_PATH)
     
@@ -16,4 +20,4 @@ def POPULATE_DB(DB_NAME):
         annotation.content = list(i.values())[1]
         db.add(annotation)
         
-POPULATE_DB('notes')
+#POPULATE_DB('notes')
