@@ -1,6 +1,7 @@
 from utils import load_data, load_template
 from urllib.parse import unquote_plus
 from utils import has_directory, build_response
+from database import Database, Note
 import json
 
 def request_params(request):
@@ -14,14 +15,40 @@ def request_params(request):
         params[key] = value
     return params
     
-def write_json(data, filename):
+'''def write_json(data, filename):
     path = has_directory(filename, 'data')
     with open(path, 'r', encoding = 'utf-8') as file:
         write = json.load(file)
         write.append(data)
     
     with open(path, 'w', encoding = 'utf-8') as file:
-        json.dump(write, file, ensure_ascii = False, indent = 4) 
+        json.dump(write, file, ensure_ascii = False, indent = 4)'''
+        
+def write_on_db(data, DB_NAME):
+    if DB_NAME.endswith('.db'):
+        db = DB_NAME[-3]
+    else:
+        db = DB_NAME
+        
+    if type(data) == Note:
+        db.add(data)
+        
+    elif type(data) == dict:
+        for key, value in data.items():
+            annotation = Note()
+            annotation.title = str(key)
+            annotation.content = str(value)
+            db.add(annotation)
+            
+    elif type(data) == list:
+            for i in data:
+                annotation = Note()
+                annotation.title = list(i.values())[0]
+                annotation.content = list(i.values())[1]
+                db.add(annotation)
+                
+    else:
+        raise TypeError("Provided data could not be appended to database.")
 
 def index(request):
     note_template = load_template('components/note.html')
@@ -38,6 +65,6 @@ def index(request):
     elif request.startswith('POST'):
         params = request_params(request)
         
-        write_json(params, 'notes.json')
+        write_on_db(params, 'notes')
         return build_response(code = 303, reason = 'See Other', headers = 'Location: /')
             

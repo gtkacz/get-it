@@ -12,9 +12,9 @@ def populate_db(DB_NAME):
         os.remove(DB_PATH)
     
     db = Database(DB_NAME)
-    json_path = load_data('./data/notes.json')
+    json = load_data('./data/notes.json')
 
-    for i in json_path:
+    for i in json:
         annotation = Note()
         annotation.title = list(i.values())[0]
         annotation.content = list(i.values())[1]
