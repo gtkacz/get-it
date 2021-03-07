@@ -17,13 +17,13 @@ server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind((SERVER_HOST, SERVER_PORT))
 server_socket.listen()
 
-#print(f'Servidor escutando em (ctrl+click): http://{SERVER_HOST}:{SERVER_PORT}')
+# print(f'Servidor escutando em (ctrl+click): http://{SERVER_HOST}:{SERVER_PORT}')
 print(f'Servidor escutando em (ctrl+click): http://localhost:{SERVER_PORT}')
 
 while True:
     client_connection, client_address = server_socket.accept()
 
-    request = client_connection.recv(1024).decode(encoding='utf-8')
+    request = client_connection.recv(1024).decode(encoding = 'utf-8')
     print(request)
 
     route = extract_route(request)
@@ -34,7 +34,7 @@ while True:
     elif route == '':
         response = index(request)
     else:
-        response = build_response(body='404\nPage Not Found', code=404, reason='Not Found')
+        response = build_response(body = '404\nPage Not Found', code = 404, reason = 'Not Found')
         
     client_connection.sendall(response)
 
