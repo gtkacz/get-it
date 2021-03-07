@@ -26,23 +26,18 @@
 
     
     <main class="container">
-      <!-- method="post" foi removido apenas para o exemplo funcionar sem o servidor -->
       <form class="form-card" method="post">
-        <label for="titulo">Título</label>
         <input
           id="titulo" class="form-card-title" type="text" name="titulo" placeholder="Título"
         />
-        <label for="detalhes">Detalhes</label>
-        <textarea id="detalhes" name="detalhes" type="text" placeholder="Detalhes" ></textarea>
+        <textarea class="autoresize" name="detalhes" type="text" placeholder="Detalhes" ></textarea>
         <button class="btn" type="submit">Criar</button>
       </form>
     
       <div class="card-container">
-          {notes}
-          
+          {notes}    
       </div>
-
     </main>
-    <script type="text/javascript" src="docs/getit.js"></script>
+    <script type="text/javascript" src="getit.js"></script>
   </body>
 </html>

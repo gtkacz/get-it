@@ -18,9 +18,9 @@ def write_json(data, filename):
     path=has_directory(filename, 'data')
     with open(path,'r', encoding ='utf-8') as file:
         write=json.load(file)
-    
-    with open(path, 'w') as file:
         write.append(data)
+    
+    with open(path, 'w', encoding ='utf-8') as file:
         json.dump(write, file, ensure_ascii=False, indent=4) 
 
 def index(request):
