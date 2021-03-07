@@ -4,9 +4,8 @@ from utils import load_data
 
 db = Database('notes')
 
-for dados in load_data('notes.json'):
-    title = dados['titulo']
+for data in load_data('notes.json'):
+    title = data['titulo']
     id = None
-    details = dados['detalhes']
-    aa = Note(id, title, details)
-    db.add(aa)
+    details = data['detalhes']
+    db.add(Note(id, title, details))
