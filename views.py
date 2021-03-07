@@ -16,15 +16,18 @@ def request_params(request):
     
 def write_json(data, filename):
     path=has_directory(filename, 'data')
-    with open(path,'r+', encoding ='utf-8') as file:
-        data=(json.load(file)).append(data)
-        json.dump(data, file, ensure_ascii=False, indent=4) 
+    with open(path,'r', encoding ='utf-8') as file:
+        write=json.load(file)
+    
+    with open(path, 'w') as file:
+        write.append(data)
+        json.dump(write, file, ensure_ascii=False, indent=4) 
 
 def index(request):
+    note_template = load_template('components/note.html')
     if request.startswith('GET'):
         # Cria uma lista de <li>'s para cada anotação
         # Se tiver curiosidade: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
-        note_template = load_template('components/note.html')
         notes_li = [
             note_template.format(title=dados['titulo'], details=dados['detalhes'])
             for dados in load_data('notes.json')
@@ -35,6 +38,6 @@ def index(request):
     elif request.startswith('POST'):
         params = request_params(request)
         
-        write_json(params)
+        write_json(params, 'notes.json')
         return build_response(code=303, reason='See Other', headers='Location: /')
             

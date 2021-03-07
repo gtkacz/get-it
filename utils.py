@@ -29,13 +29,14 @@ def read_file(path):
     
 def has_directory(string, directory):
     c=0
+    string=str(string)
     for i in string:
         if i == '/':
             c+=1
     if c>1:
-        return string
+        return str(string)
     else:
-        return Path(f'./{directory}/{string}')
+        return str(f'./{directory}/{string}')
 
 def load_data(path):
     path=has_directory(path, 'data')
