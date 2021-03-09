@@ -285,12 +285,35 @@ form:hover{
   font-weight: bold;
 }
 
-.edit-content {
-  align-items: center;
+.delete-content{
+  opacity: 0;
+  margin: 0.5em;
+  position: absolute;
+  top: 0; 
+  right: 0;
+  transition: opacity 100ms ease-in-out;
 }
 
-.delete-content {
-  align-items: center;
+.edit-content{
+  opacity: 0;
+  margin: 0.5em;
+  position: absolute; 
+  top: 0; 
+  right: 2em;
+  transition: opacity 100ms ease-in-out;
+}
+
+.card:hover .delete-content {
+  opacity: 1;
+}
+
+.delete-content:hover {
+  color: red;
+  fill: red;
+}
+
+.card:hover .edit-content {
+  opacity: 1;
 }
 
 .card-rotation-1  {background-color: #ead3a7}
