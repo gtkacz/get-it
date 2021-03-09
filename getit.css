@@ -327,7 +327,15 @@ form:hover{
 }
 
 .restore-content:hover {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(45deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+}
+
+.info-img {
+  position: absolute;
+  right: 0;
+  vertical-align: middle;
+  padding-top: 1.75em;
+  padding-right: 1em;
 }
 
 .card-rotation-1  {background-color: #ead3a7}
