@@ -34,6 +34,5 @@ def index(request):
         params = request_params(request)
         
         write_on_db(params, 'notes')
-        print(params)
         return build_response(code = 303, reason = 'See Other', headers = 'Location: /')
             
