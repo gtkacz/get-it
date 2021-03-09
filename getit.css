@@ -290,8 +290,7 @@ form:hover{
   position: absolute;
   top: 0; 
   right: 0;
-  transition: opacity 100ms ease-in-out, drop-shadow 100ms ease-in-out;
-  -webkit-transition : -webkit-filter 200ms ease-in-out;
+  -webkit-transition : all 150ms ease-in-out;
 }
 
 .edit-content{
@@ -301,8 +300,7 @@ form:hover{
   position: absolute; 
   top: 0; 
   right: 2em;
-  transition: opacity 100ms ease-in-out;
-  -webkit-transition : -webkit-filter 200ms ease-in-out;
+  -webkit-transition : all 200ms ease-in-out;
 }
 
 .card:hover .delete-content {
@@ -310,7 +308,7 @@ form:hover{
 }
 
 .delete-content:hover {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
 }
 
 .card:hover .edit-content {
@@ -318,7 +316,17 @@ form:hover{
 }
 
 .edit-content:hover {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(46deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(46deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+.restore-content{
+  position: absolute;
+  right: 49.5em;
+  padding: 0.75em;
+}
+
+.restore-content:hover {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
 }
 
 .card-rotation-1  {background-color: #ead3a7}
