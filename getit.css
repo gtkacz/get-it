@@ -290,7 +290,7 @@ form:hover{
   position: absolute;
   top: 0; 
   right: 0;
-  transition: opacity 100ms ease-in-out;
+  transition: opacity 100ms ease-in-out, drop-shadow 100ms ease-in-out;
   -webkit-transition : -webkit-filter 200ms ease-in-out;
 }
 
@@ -309,7 +309,7 @@ form:hover{
 }
 
 .delete-content:hover {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .card:hover .edit-content {
@@ -317,7 +317,7 @@ form:hover{
 }
 
 .edit-content:hover {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(46deg) brightness(104%) contrast(97%);
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(46deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .card-rotation-1  {background-color: #ead3a7}
