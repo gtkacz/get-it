@@ -294,7 +294,7 @@ form:hover{
 }
 
 .edit-content{
-  height: 15%;
+  height: 14%;
   opacity: 0;
   margin: 0.5em;
   position: absolute; 
@@ -316,13 +316,14 @@ form:hover{
 }
 
 .edit-content:hover {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(46deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(240deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
 }
 
 .restore-content{
   position: absolute;
   right: 49.5em;
   padding: 0.75em;
+  -webkit-transition : all 200ms ease-in-out;
 }
 
 .restore-content:hover {
