@@ -19,19 +19,19 @@ while True:
     client_connection, client_address = server_socket.accept()
 
     request = client_connection.recv(1024).decode(encoding = 'utf-8')
-    print(request)
 
-    route = extract_route(request)
-    filepath = CUR_DIR / route
-    if filepath.is_file():
-        response = build_response() + read_file(filepath)
-    elif route == '':
-        response = index(request)
-    else:
-        response = build_response(body = '404\nPage Not Found', code = 404, reason = 'Not Found')
-        
-    client_connection.sendall(response)
+    if request:
+        route = extract_route(request)
+        filepath = CUR_DIR / route
+        if filepath.is_file():
+            response = build_response() + read_file(filepath)
+        elif route == '':
+            response = index(request)
+        else:
+            response = build_response(body = '404\nPage Not Found', code = 404, reason = 'Not Found')
+            
+        client_connection.sendall(response)
 
-    client_connection.close()
+        client_connection.close()
 
 server_socket.close()

@@ -17,12 +17,15 @@ def request_params(request):
 
 def index(request):
     note_template = load_template('components/note.html')
+    dados=Database('notes')
+    db_notes=dados.get_all()
+    
     if request.startswith('GET'):
         # Cria uma lista de < li > 's para cada anotação
         # Se tiver curiosidade: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
         notes_li = [
-            note_template.format(title = dados['titulo'], details = dados['detalhes'])
-            for dados in load_data('notes.json')
+            note_template.format(title = dados.title, details = dados.content)
+            for dados in db_notes
         ]
         notes = '\n'.join(notes_li)
         return build_response() + load_template('index.html').format(notes = notes).encode(encoding = 'utf-8')

@@ -20,4 +20,4 @@ def populate_db(DB_NAME):
         annotation.content = list(i.values())[1]
         db.add(annotation)
         
-#POPULATE_DB('notes')
+populate_db('notes')

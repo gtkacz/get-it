@@ -4,11 +4,10 @@ from database import Database, Note
 
 
 def extract_route(request):
-    return request.split()[1][1:]
-    # if request.startswith('GET'):
-    #     return request.split()[1][1:]
-    # elif request.startswith('POST'):
-    #     return ''        
+    if request != '':
+        return request.split()[1][1:]
+    else:
+        return ''
 
 def is_path(subject):
     if not type(subject) is Path:
