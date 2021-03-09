@@ -2,6 +2,7 @@ import socket
 from pathlib import Path
 from utils import extract_route, read_file, build_response
 from views import index
+import webbrowser
 
 CUR_DIR = Path(__file__).parent
 SERVER_HOST = '0.0.0.0'
@@ -13,7 +14,9 @@ server_socket.bind((SERVER_HOST, SERVER_PORT))
 server_socket.listen()
 
 # print(f'Servidor escutando em (ctrl+click): http://{SERVER_HOST}:{SERVER_PORT}')
-print(f'Servidor escutando em (ctrl+click): http://localhost:{SERVER_PORT}')
+url=f'http://localhost:{SERVER_PORT}'
+print(f'Servidor escutando em (ctrl+click): {url}')
+webbrowser.open(url, new=0, autoraise=True)
 
 while True:
     client_connection, client_address = server_socket.accept()

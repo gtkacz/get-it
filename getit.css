@@ -77,7 +77,7 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 2px;
+  height: 0.1em;
   background: currentColor;
   transform: scaleX(0);
   transform-origin: right;
@@ -325,6 +325,10 @@ form:hover{
   vertical-align: middle;
   padding-top: 1.75em;
   padding-right: 1em;
+}
+
+.info-img:hover {
+  cursor: help;
 }
 
 .card-rotation-1  {background-color: #ead3a7}
