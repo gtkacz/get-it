@@ -19,6 +19,9 @@ while True:
     client_connection, client_address = server_socket.accept()
 
     request = client_connection.recv(1024).decode(encoding = 'utf-8')
+    
+    if request.startswith('POST'):
+        print(request)
 
     if request:
         route = extract_route(request)
