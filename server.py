@@ -7,11 +7,6 @@ CUR_DIR = Path(__file__).parent
 SERVER_HOST = '0.0.0.0'
 SERVER_PORT = 8080
 
-NOTE_TEMPLATE = '''  
-'''
-
-RRESPONSE_TEMPLATE = 'HTTP/1.1 200 OK' 
-
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind((SERVER_HOST, SERVER_PORT))
@@ -27,7 +22,6 @@ while True:
     print(request)
 
     route = extract_route(request)
-    print(request.split()[1])
     filepath = CUR_DIR / route
     if filepath.is_file():
         response = build_response() + read_file(filepath)

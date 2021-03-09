@@ -1,8 +1,10 @@
 from pathlib import Path
 import json
+from database import Database, Note
 
 
 def extract_route(request):
+    print(request.split())
     return request.split()[1][1:]
     # if request.startswith('GET'):
     #     return request.split()[1][1:]
@@ -57,3 +59,40 @@ def build_response(body = '', code = 200, reason = 'OK', headers = ''):
     else:
         response += '\n' + headers + '\n\n' + body
     return response.encode(encoding = 'UTF-8')
+
+def write_json(data, filename):
+    path = has_directory(filename, 'data')
+    with open(path, 'r', encoding = 'utf-8') as file:
+        write = json.load(file)
+        write.append(data)
+    
+    with open(path, 'w', encoding = 'utf-8') as file:
+        json.dump(write, file, ensure_ascii = False, indent = 4)
+        
+def write_on_db(data, DB_NAME):
+    if DB_NAME.endswith('.db'):
+        db = DB_NAME[-3]
+    else:
+        db = DB_NAME
+        
+    db=Database(db)
+        
+    if type(data) == Note:
+        db.add(data)
+        
+    elif type(data) == dict:
+        for key, value in data.items():
+            annotation = Note()
+            annotation.title = str(key)
+            annotation.content = str(value)
+            db.add(annotation)
+            
+    elif type(data) == list:
+            for i in data:
+                annotation = Note()
+                annotation.title = list(i.values())[0]
+                annotation.content = list(i.values())[1]
+                db.add(annotation)
+                
+    else:
+        raise TypeError("Provided data could not be appended to database.")
