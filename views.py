@@ -1,6 +1,6 @@
 from utils import load_data, load_template
 from urllib.parse import unquote_plus
-from utils import has_directory, build_response
+from utils import *
 from database import Database, Note
 import json
 
@@ -31,5 +31,6 @@ def index(request):
         params = request_params(request)
         
         write_on_db(params, 'notes')
+        print(params)
         return build_response(code = 303, reason = 'See Other', headers = 'Location: /')
             

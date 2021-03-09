@@ -4,7 +4,6 @@ from database import Database, Note
 
 
 def extract_route(request):
-    print(request.split())
     return request.split()[1][1:]
     # if request.startswith('GET'):
     #     return request.split()[1][1:]
@@ -69,6 +68,13 @@ def write_json(data, filename):
     with open(path, 'w', encoding = 'utf-8') as file:
         json.dump(write, file, ensure_ascii = False, indent = 4)
         
+def key_is_empty(dic, key):
+    a=dic.get(key)
+    if a is not None:
+        return a
+    else:
+        raise ValueError(f"Dictionary has no key {key}")
+        
 def write_on_db(data, DB_NAME):
     if DB_NAME.endswith('.db'):
         db = DB_NAME[-3]
@@ -81,11 +87,17 @@ def write_on_db(data, DB_NAME):
         db.add(data)
         
     elif type(data) == dict:
-        for key, value in data.items():
+        try:
             annotation = Note()
-            annotation.title = str(key)
-            annotation.content = str(value)
+            annotation.title = str(key_is_empty(data,'titulo'))
+            annotation.content = str(key_is_empty(data,'detalhes'))
             db.add(annotation)
+        except:
+             for key, value in data.items():
+                 annotation = Note()
+                 annotation.title = str(key)
+                 annotation.content = str(value)
+                 db.add(annotation)
             
     elif type(data) == list:
             for i in data:
