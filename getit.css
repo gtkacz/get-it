@@ -285,6 +285,13 @@ form:hover{
   font-weight: bold;
 }
 
+.edit-content {
+  align-items: center;
+}
+
+.delete-content {
+  align-items: center;
+}
 
 .card-rotation-1  {background-color: #ead3a7}
 .card-rotation-2  {background-color: #9de0f5}
