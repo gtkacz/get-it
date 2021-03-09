@@ -295,6 +295,7 @@ form:hover{
 }
 
 .edit-content{
+  height: 15%;
   opacity: 0;
   margin: 0.5em;
   position: absolute; 
