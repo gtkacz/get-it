@@ -178,15 +178,14 @@ form:hover{
   height: auto;
 	min-height: 8rem;
   max-width: 15rem;
-	padding: 1rem;
+	padding: 0.75rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   margin-right: 0.15rem;
   margin-left: 0.15rem;
   border-radius: 0.35rem;
   box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgb(0, 0, 0, 0.05) inset;
-  transition: box-shadow 750ms;
-  transition: transform 250ms ease-in-out;
+  transition: transform 375ms ease-in-out, box-shadow 750ms;
   position: relative;
 }
 
