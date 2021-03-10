@@ -23,7 +23,7 @@
     <div class="appbar">
       <img src="img/logo-getit.png" class="logo" />
       <span class="subtitle">Como o Post-it, mas com outro verbo</span>
-      <img src="img/info_black_24dp.svg" class="info-img"/>
+      <img src="img/info_black_24dp.svg" class="info-img" title="Project to create and save annotations on database via website interface. Backend made with Python. Databases handled with SQLite via sqlite3 Python library. Website built with HTML/CSS and javascript."/>
     </div>
 
     <!-- <div class="info-card">
@@ -41,7 +41,11 @@
         />
         <textarea class="autoresize" name="detalhes" type="text" placeholder="Detalhes" ></textarea>
         <button class="btn" type="submit">Criar</button>
-        <input class="restore-content" type="image" src="img/restore_black_24dp.svg" name='button-delete' title="This button will reset the database to its original state.""/>
+      </form>
+
+      <form method="post">
+        <input class="restore-content" type="image" src="img/restore_black_24dp.svg" title="Restaurar o conteúdo original do banco de dados"/>
+        <input type="hidden" name="restore-db" value="restore-db"/>
       </form>
     
       <div class="card-container">

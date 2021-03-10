@@ -1,8 +1,14 @@
-<div class="card" method="post">
+<form name="delete-form method="post class="card">
     <h3 class="card-title" name="author">{title}</h3>
+
     <div class="card-content">
         <p>{details}</p>
     </div>
-    <input class="edit-content" type="image" src="img/edit_black_24dp.svg" name='button-edit' title="Edit this post-it" />
-    <input class="delete-content" type="image" src="img/clear_black_24dp.svg" name='button-delete' title="Delete this post-it" />
-</div>
+
+    <input class="edit-content" type="image" src="img/edit_black_24dp.svg" name='button-edit' title="Edite esse post-it" />
+
+    <input class="delete-content" type="image" src="img/clear_black_24dp.svg" name='button-delete' title="Delete esse post-it" />
+
+    <input type="hidden" name="note_id" value={id}"/>
+
+</form>

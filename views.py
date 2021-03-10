@@ -24,7 +24,7 @@ def index(request):
         # Cria uma lista de < li > 's para cada anotação
         # Se tiver curiosidade: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
         notes_li = [
-            note_template.format(title = dados.title, details = dados.content)
+            note_template.format(title = dados.title, details = dados.content, id=dados.id)
             for dados in db_notes
         ]
         notes = '\n'.join(notes_li)

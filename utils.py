@@ -1,9 +1,12 @@
 from pathlib import Path
-import json
+import json, os
 from database import Database, Note
-
+#from populate_database import populate_db
 
 def extract_route(request):
+    if request.startswith('POST'):
+        print('entrou no if')
+        request=restore_db(request)
     if request != '':
         return request.split()[1][1:]
     else:
@@ -107,3 +110,33 @@ def write_on_db(data, DB_NAME):
                 
     else:
         raise TypeError("Provided data could not be appended to database.")
+    
+def delete_from_db(id, db_name):
+    pass
+
+def populate_db(DB_NAME):
+    if DB_NAME.endswith('.db'):
+        DB_NAME = DB_NAME[:-3]
+        
+    DB_PATH = DB_NAME + '.db'
+    
+    if os.path.exists(DB_PATH):
+        os.remove(DB_PATH)
+    
+    db = Database(DB_NAME)
+    json = load_data('./data/notes.json')
+
+    for i in json:
+        annotation = Note()
+        annotation.title = list(i.values())[0]
+        annotation.content = list(i.values())[1]
+        db.add(annotation)
+
+def restore_db(request, db_name='notes'):
+    true=request.split('&')
+    print(true)
+    if true[-1]=='restore-db=restore-db':
+        populate_db(db_name)
+        return ''
+    else:
+        return request

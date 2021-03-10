@@ -16,7 +16,7 @@ server_socket.listen()
 # print(f'Servidor escutando em (ctrl+click): http://{SERVER_HOST}:{SERVER_PORT}')
 url=f'http://localhost:{SERVER_PORT}'
 print(f'Servidor escutando em (ctrl+click): {url}')
-webbrowser.open(url, new=0, autoraise=True)
+#webbrowser.open(url, new=0, autoraise=True)
 
 while True:
     client_connection, client_address = server_socket.accept()
@@ -24,7 +24,8 @@ while True:
     request = client_connection.recv(1024).decode(encoding = 'utf-8')
     
     if request.startswith('POST'):
-        print(request)
+        #print(request)
+        pass
 
     if request:
         route = extract_route(request)

@@ -270,6 +270,7 @@ form:hover{
 }
 
 .delete-content{
+  display: block !important;
   opacity: 0;
   margin: 0.5em;
   position: absolute;
@@ -329,6 +330,10 @@ form:hover{
 
 .info-img:hover {
   cursor: help;
+}
+
+.button-form {
+  transform: scale(0);
 }
 
 .card-rotation-1  {background-color: #ead3a7}
