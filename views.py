@@ -33,6 +33,6 @@ def index(request):
     elif request.startswith('POST'):
         params = request_params(request)
         
-        write_on_db(params, 'notes')
+        if (request.split()[-1]).split('&')[-1]!='restore-db=restore-db':
+            write_on_db(params, 'notes')     
         return build_response(code = 303, reason = 'See Other', headers = 'Location: /')
-            

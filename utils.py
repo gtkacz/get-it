@@ -5,7 +5,6 @@ from database import Database, Note
 
 def extract_route(request):
     if request.startswith('POST'):
-        print('entrou no if')
         request=restore_db(request)
     if request != '':
         return request.split()[1][1:]
@@ -133,8 +132,9 @@ def populate_db(DB_NAME):
         db.add(annotation)
 
 def restore_db(request, db_name='notes'):
-    true=request.split('&')
-    print(true)
+    request2 = request.replace('\r', '')
+    true=request2.split('\n')
+    true=(true[-1]).split('&')
     if true[-1]=='restore-db=restore-db':
         populate_db(db_name)
         return ''

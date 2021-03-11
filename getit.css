@@ -93,7 +93,7 @@ body {
   color: ;
 } */
 
-form {
+.form-card-style {
 	display: flex;
 	flex-direction: column;
   align-self: center;
@@ -108,7 +108,7 @@ form {
   transition: box-shadow 250ms ease-in-out;
 }
 
-form:hover{
+.form-card-style:hover{
   box-shadow: 0 7px 10px rgba(0, 0, 0, 0.6);
 }
 
@@ -310,8 +310,8 @@ form:hover{
 
 .restore-content{
   position: absolute;
-  right: 49.5em;
-  padding: 0.75em;
+  /* right: 49.5em; */
+  /* padding: 0.75em; */
   -webkit-transition : all 200ms ease-in-out, transform 700ms ease-in-out;
 }
 
@@ -334,6 +334,24 @@ form:hover{
 
 .button-form {
   transform: scale(0);
+}
+
+.botao-invisivel{
+  /* background-color: #4c4c4c; */
+  background: transparent;
+  border: none !important;
+  opacity: 0;
+  position: absolute;
+  left: 1;
+  right: 1;
+  top: 1;
+  bottom: 1;
+}
+
+.form-restore {
+	display: flex;
+	flex-direction: column;
+  align-self: center;
 }
 
 .card-rotation-1  {background-color: #ead3a7}

@@ -35,7 +35,7 @@
     </div> -->
     
     <main class="container">
-      <form class="form-card" method="post">
+      <form class="form-card form-card-style" method="post">
         <input
           id="titulo" class="form-card-title" type="text" name="titulo" placeholder="Título"
         />
@@ -43,8 +43,9 @@
         <button class="btn" type="submit">Criar</button>
       </form>
 
-      <form method="post">
-        <input class="restore-content" type="image" src="img/restore_black_24dp.svg" title="Restaurar o conteúdo original do banco de dados"/>
+      <form method="post" class="form-restore">
+        <button id="button-restore" class="botao-invisivel" type="submit">A</button>
+        <input type="image" src="img/restore_black_24dp.svg" class="restore-content" title="Restaurar o conteúdo original do banco de dados"/>
         <input type="hidden" name="restore-db" value="restore-db"/>
       </form>
     
