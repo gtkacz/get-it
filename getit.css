@@ -74,6 +74,10 @@ body {
   -o-transform: scale(105%);
 }
 
+a:focus {
+  outline:0;
+}
+
 .subtitle { 
   align-self: center;
   margin-left: 0.5rem;
