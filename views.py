@@ -1,8 +1,6 @@
-from utils import load_data, load_template
 from urllib.parse import unquote_plus
 from utils import *
 from database import Database, Note
-import json
 
 def request_params(request):
     request = request.replace('\r', '')
@@ -33,6 +31,22 @@ def index(request):
     elif request.startswith('POST'):
         params = request_params(request)
         
-        if (request.split()[-1]).split('&')[-1]!='restore-db=restore-db':
-            write_on_db(params, 'notes')     
+        is_restore=False
+        is_delete=False
+        is_edit=False
+        
+        if (request.split()[-1]).split('&')[-1]=='restore-db=restore-db':
+            is_restore=True
+            
+        if ((request.split()[-1]).split('&')[-1]).split('=')[0]=='delete_note_id':
+            is_delete=True
+            note_id=((request.split()[-1]).split('&')[-1]).split('=')[1]
+            dados.delete(note_id)
+            
+        if ((request.split()[-1]).split('&')[-1]).split('=')[0]=='edit_note_id':
+            is_edit=True
+        
+        if (is_restore == False) and (is_delete == False) and (is_edit == False):
+            write_on_db(params, 'notes')
+            
         return build_response(code = 303, reason = 'See Other', headers = 'Location: /')

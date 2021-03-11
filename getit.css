@@ -270,9 +270,9 @@ body {
 }
 
 .delete-content{
-  display: block !important;
+  /* display: block !important; */
   opacity: 0;
-  margin: 0.5em;
+  /* margin: 0.5em; */
   position: absolute;
   top: 0; 
   right: 0;
@@ -282,10 +282,10 @@ body {
 .edit-content{
   height: 14%;
   opacity: 0;
-  margin-top: 0.5em;
+  /* margin-top: 0.5em;
   margin-bottom: 0.5em;
   margin-left: 0.5em;
-  margin-right: 0.2em;
+  margin-right: 0.2em; */
   position: absolute; 
   top: 0; 
   right: 2em;
@@ -361,6 +361,13 @@ body {
   z-index: 10;
   width: 1em;
 }
+
+.delete-edit-form{
+  position: relative;
+  top: -8.12em;
+  right: -0.5em;
+}
+
 .card-rotation-1  {background-color: #ead3a7}
 .card-rotation-2  {background-color: #9de0f5}
 .card-rotation-3  {background-color: #ef89ba}
