@@ -50,6 +50,28 @@ body {
 .logo:hover {
   filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.35));
   transform: scale(103%);
+  -webkit-transform: scale(103%);
+  -moz-transform: scale(103%);
+  -ms-transform: scale(103%);
+  -o-transform: scale(103%);
+}
+
+.info-img {
+  position: absolute;
+  right: 0;
+  vertical-align: middle;
+  padding-top: 1.75em;
+  padding-right: 1em;
+  transition: transform 150ms ease-in-out;
+}
+
+.info-img:hover {
+  cursor: help;
+  transform: scale(105%);
+  -webkit-transform: scale(105%);
+  -moz-transform: scale(105%);
+  -ms-transform: scale(105%);
+  -o-transform: scale(105%);
 }
 
 .subtitle { 
@@ -112,7 +134,6 @@ body {
   box-shadow: 0 7px 10px rgba(0, 0, 0, 0.6);
 }
 
-
 .form-card-title {
   font-size: 1.5rem;
   font-weight: 550;
@@ -120,6 +141,12 @@ body {
   margin: 0.75rem;
   position: relative;
   transition: color 250ms ease-in-out;
+}
+
+.form-card-title:focus {
+  color: #9b870c;
+  transition: color 250ms ease-in-out;
+  outline:0;
 }
 
 .form-card-title:hover {
@@ -140,6 +167,20 @@ body {
 .autoresize:hover {
   color: #9b870c;
   transition: color 250ms ease-in-out;
+}
+
+.autoresize:focus {
+  color: #9b870c;
+  transition: color 250ms ease-in-out;
+  outline:0;
+}
+
+.texto-botao{
+  transition: color 250ms ease-in-out;
+}
+
+.btn:hover .texto-botao {
+  color: #9b870c;
 }
 
 .card-container {
@@ -178,10 +219,6 @@ body {
   position: relative;
 }
 
-.card-drag{
-  position: absolute;
-}
-
 .card:hover,
 .card:focus {
   box-shadow: 0 3px 20px 3px rgba(0, 0, 0, 0.5), 0px 0px 5px rgba(0, 0, 0, 0.1) inset;
@@ -193,7 +230,7 @@ body {
     font-family: 'Permanent Marker', cursive;
     font-weight: bold;
     font-size: 1.5rem;
-    margin-top: -0.75rem;
+    /* margin-top: -0.75rem; */
     cursor: default;
 }
 
@@ -212,28 +249,26 @@ body {
   display: block;
   padding: 10px 15px;
   cursor: pointer;
-
   height: 2.5rem;
-
   overflow: hidden;
-
   border-width: 0;
   outline: none;
   border-radius: 0.15rem;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-
   background-color: #f7d736;
-
   transition: background-color 0.3s;
-
   font-size: 1rem;
-  /*font-weight: bold;*/
-  border: none;
+  /*font-weight: bold;
+  */border: none;
   margin-right: 0.75rem;
   margin-left: 0.75rem;
   margin-bottom: 0.75rem;
   margin-top: -0.65rem;
-  transition: box-shadow 250ms ease-in-out;
+  transition: box-shadow 250ms ease-in-out, scale 100ms ease-in-out;
+  -webkit-transition: box-shadow 250ms ease-in-out, scale 100ms ;
+  -moz-transition: box-shadow 250ms ease-in-out, scale 100ms ;
+  -ms-transition: box-shadow 250ms ease-in-out, scale 100ms ;
+  -o-transition: box-shadow 250ms ease-in-out, scale 100ms ;
 }
 
 .btn > * {
@@ -272,12 +307,13 @@ body {
 .btn:hover,
 .btn:focus {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.6), 0px 5px 10px rgb(255, 249, 171, 0.6) inset;
+  scale: 1.005;
 }
 
 .delete-content{
   /* display: block !important; */
   opacity: 0;
-  /* margin: 0.5em; */
+  margin: 0.5em;
   position: absolute;
   top: 0; 
   right: 0;
@@ -287,10 +323,10 @@ body {
 .edit-content{
   height: 14%;
   opacity: 0;
-  /* margin-top: 0.5em;
+  margin-top: 0.5em;
   margin-bottom: 0.5em;
   margin-left: 0.5em;
-  margin-right: 0.2em; */
+  margin-right: 0.2em;
   position: absolute; 
   top: 0; 
   right: 2em;
@@ -305,12 +341,20 @@ body {
   filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
 }
 
+.delete-content:focus {
+  outline:0;
+}
+
 .card:hover .edit-content {
   opacity: 1;
 }
 
 .edit-content:hover {
   filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(240deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+.edit-content:focus {
+  outline:0;
 }
 
 .restore-content{
@@ -325,16 +369,8 @@ body {
   transform: rotate(-360deg);
 }
 
-.info-img {
-  position: absolute;
-  right: 0;
-  vertical-align: middle;
-  padding-top: 1.75em;
-  padding-right: 1em;
-}
-
-.info-img:hover {
-  cursor: help;
+.restore-content:focus {
+  outline:0;
 }
 
 .button-form {
