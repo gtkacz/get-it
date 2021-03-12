@@ -140,7 +140,7 @@ a:focus {
 
 .form-card-title {
   font-size: 1.5rem;
-  font-weight: 550;
+  font-weight: 500;
   border: none;
   margin: 0.75rem;
   position: relative;
@@ -161,6 +161,7 @@ a:focus {
 .autoresize {
   font-size: auto;
   font-family: "Montserrat", sans-serif;
+  font-weight: 500;
   border: none;
   margin-top: 0.75rem;
   margin-left: 0.75rem;
@@ -210,14 +211,14 @@ a:focus {
 }
 
 .card {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25%;
   height: auto;
-	min-height: 8rem;
+  min-height: 8rem;
   max-width: 15rem;
-	padding: 0.75rem;
+  padding: 0.75rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   margin-right: 0.15rem;
@@ -226,21 +227,32 @@ a:focus {
   box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgb(0, 0, 0, 0.05) inset;
   transition: transform 375ms ease-in-out, box-shadow 750ms;
   position: relative;
+  -webkit-transition: transform 375ms ease-in-out, box-shadow 750ms;
+  -moz-transition: transform 375ms ease-in-out, box-shadow 750ms;
+  -ms-transition: transform 375ms ease-in-out, box-shadow 750ms;
+  -o-transition: transform 375ms ease-in-out, box-shadow 750ms;
 }
 
 .card:hover,
 .card:focus {
   box-shadow: 0 3px 20px 3px rgba(0, 0, 0, 0.5), 0px 0px 5px rgba(0, 0, 0, 0.1) inset;
-  transform: rotate(0deg) scale(105%);
+  transform: rotate(0deg) scale(115%);
+  -webkit-transform: rotate(0deg) scale(115%);
+  -moz-transform: rotate(0deg) scale(115%);
+  -ms-transform: rotate(0deg) scale(115%);
+  -o-transform: rotate(0deg) scale(115%);
 }
 
 .card-title {
-    font-family: 'Gloria Hallelujah', cursive;
-    font-weight: bold;
-    font-size: 1.5rem;
-    /* margin-top: -0.75rem; */
-    cursor: default;
-    position: relative;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-weight: bold;
+  /* font-size: 1.5rem; */
+  font-size: 1.2vw;
+  /* margin-top: -0.75rem; */
+  cursor: default;
+  position: relative;
+  justify-self: center;
+  align-self: center;
 }
 
 .card-underline{
@@ -264,7 +276,8 @@ a:focus {
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 1.2rem;
   /* color:#4c4c4c; */
-  color:#262626;
+  color:#333333;
+  /* color:#262626; */
   align-self:center;
   cursor: default;
 } 
@@ -350,6 +363,16 @@ a:focus {
 .edit-content{
   height: 14%;
   opacity: 0;
+  margin: 0.5em;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  -webkit-transition : all 150ms ease-in-out;
+}
+
+/* .edit-content{
+  height: 14%;
+  opacity: 0;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   margin-left: 0.5em;
@@ -358,14 +381,18 @@ a:focus {
   top: 0; 
   right: 2em;
   -webkit-transition : all 200ms ease-in-out;
-}
+} */
 
 .card:hover .delete-content {
-  opacity: 1;
+  opacity: 50%;
+  -webkit-transition : all 250ms ease-in-out;
 }
 
-.delete-content:hover {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+.card:hover .delete-content:hover {
+  opacity: 100%;
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+  /*filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));*/
+  -webkit-filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
 }
 
 .delete-content:focus {
@@ -373,11 +400,16 @@ a:focus {
 }
 
 .card:hover .edit-content {
-  opacity: 1;
+  opacity: 50%;
+  -webkit-transition : all 250ms ease-in-out;
 }
 
-.edit-content:hover {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(240deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+.card:hover .edit-content:hover {
+  opacity: 100%;
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(240deg) brightness(104%) contrast(97%);
+  /*filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+  */
+  -webkit-filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(240deg) brightness(104%) contrast(97%);
 }
 
 .edit-content:focus {

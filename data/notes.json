@@ -26,5 +26,17 @@
     {
         "titulo": "Série da Fundação - Isaac Asimov",
         "detalhes": "É boa, leia."
+    },
+    {
+        "titulo": "Sorvete de banana",
+        "detalhes": "Coloque a banana no congelador e espere."
+    },
+    {
+        "titulo": "Konami code easter eggs",
+        "detalhes": "Cultura nerd. Procure no Google."
+    },
+    {
+        "titulo": "Google gravity",
+        "detalhes": "Esse também"
     }
 ]
