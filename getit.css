@@ -268,7 +268,7 @@ a:focus {
   -o-transition: background-size 500ms ease-in-out;
 }
 
-.card:hover:hover .card-underline{
+.card:hover .card-underline{
   background-size: 100% 0.1rem;
 }
 

@@ -1,9 +1,1 @@
-Negocio de informacao canto superior direito
-
-Botao de editar e deletar direto no cartao
-
-Movimentar os cartoes por ai
-
-Botao para resetar o db
-
 PARA EDITAR: DAR UM PUTA ZOOM NO CARD
