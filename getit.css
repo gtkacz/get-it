@@ -234,20 +234,37 @@ a:focus {
   transform: rotate(0deg) scale(105%);
 }
 
-
 .card-title {
     font-family: 'Gloria Hallelujah', cursive;
     font-weight: bold;
     font-size: 1.5rem;
     /* margin-top: -0.75rem; */
     cursor: default;
+    position: relative;
+}
+
+.card-underline{
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 80%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 500ms ease-in-out;
+  -webkit-transition: background-size 500ms ease-in-out;
+  -moz-transition: background-size 500ms ease-in-out;
+  -ms-transition: background-size 500ms ease-in-out;
+  -o-transition: background-size 500ms ease-in-out;
+}
+
+.card:hover:hover .card-underline{
+  background-size: 100% 2px;
 }
 
 .card-content {
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 1.2rem;
   color:#4c4c4c ;
-	align-self:center;
+  align-self:center;
   cursor: default;
 } 
 
