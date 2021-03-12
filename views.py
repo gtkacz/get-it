@@ -45,6 +45,15 @@ def index(request):
             
         if ((request.split()[-1]).split('&')[-1]).split('=')[0]=='edit_note_id':
             is_edit=True
+            note_id=((request.split()[-1]).split('&')[-1]).split('=')[1]
+            note_title=unquote_plus((request.split()[-1]).split('&')[0]).split('=')[1]
+            note_content=unquote_plus((request.split()[-1]).split('&')[1]).split('=')[1]
+            
+            edit=Note()
+            edit.id=note_id
+            edit.title=note_title
+            edit.content=note_content
+            dados.update(edit)
         
         if (is_restore == False) and (is_delete == False) and (is_edit == False):
             write_on_db(params, 'notes')
