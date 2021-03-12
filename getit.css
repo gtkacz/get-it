@@ -2,7 +2,7 @@
 Algumas informações úteis e dicas:
   - Fontes disponíveis:
     font-family: 'Roboto', sans-serif;
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Gloria Hallelujah', cursive;
   - Cores:
     Tons de amarelo:
       #e4fc2b
@@ -24,7 +24,7 @@ Algumas informações úteis e dicas:
 
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .appbar {
@@ -145,6 +145,7 @@ a:focus {
   margin: 0.75rem;
   position: relative;
   transition: color 250ms ease-in-out;
+  font-family: "Poppins", sans-serif;
 }
 
 .form-card-title:focus {
@@ -159,13 +160,12 @@ a:focus {
 
 .autoresize {
   font-size: auto;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   border: none;
   margin-top: 0.75rem;
   margin-left: 0.75rem;
   resize: none;
 	margin-bottom: 0.1rem;
-
 }
 
 .autoresize:hover {
@@ -180,11 +180,16 @@ a:focus {
 }
 
 .texto-botao{
-  transition: color 250ms ease-in-out;
+  font-family: "Montserrat", sans-serif;
+  transition: all 150ms ease-in-out;
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -ms-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
 }
 
 .btn:hover .texto-botao {
-  color: #9b870c;
+  font-weight: 600;
 }
 
 .card-container {
@@ -231,7 +236,7 @@ a:focus {
 
 
 .card-title {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Gloria Hallelujah', cursive;
     font-weight: bold;
     font-size: 1.5rem;
     /* margin-top: -0.75rem; */
@@ -239,7 +244,7 @@ a:focus {
 }
 
 .card-content {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Gloria Hallelujah', cursive;
   font-size: 1.2rem;
   color:#4c4c4c ;
 	align-self:center;
