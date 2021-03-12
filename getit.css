@@ -468,7 +468,7 @@ a:focus {
   right: -0.5em;
 }
 
-.edit-form-card{
+.edit-form-card-title{
   background: transparent;
   border: none !important;
   justify-self: center;
@@ -476,6 +476,17 @@ a:focus {
   text-decoration: none;
   text-overflow: ellipsis;
   text-emphasis-color: black;
+  height: 2.5vw;
+}
+.edit-form-card-content{
+  background: transparent;
+  border: none !important;
+  justify-self: center;
+  align-self: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-emphasis-color: black;
+  /* height: 4.5vw; */
 }
 
 .card-rotation-1  {background-color: #ead3a7}
