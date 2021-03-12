@@ -250,7 +250,7 @@ a:focus {
   font-size: 1.2vw;
   /* margin-top: -0.75rem; */
   cursor: default;
-  position: relative;
+  /* position: relative; */
   justify-self: center;
   align-self: center;
 }
