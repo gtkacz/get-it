@@ -248,7 +248,7 @@ a:focus {
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0% 80%;
   background-repeat: no-repeat;
-  background-size: 0% 2px;
+  background-size: 0% 1px;
   transition: background-size 500ms ease-in-out;
   -webkit-transition: background-size 500ms ease-in-out;
   -moz-transition: background-size 500ms ease-in-out;
@@ -257,13 +257,14 @@ a:focus {
 }
 
 .card:hover:hover .card-underline{
-  background-size: 100% 2px;
+  background-size: 100% 0.1rem;
 }
 
 .card-content {
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 1.2rem;
-  color:#4c4c4c ;
+  /* color:#4c4c4c; */
+  color:#262626;
   align-self:center;
   cursor: default;
 } 
