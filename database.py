@@ -7,20 +7,10 @@ class Note:
     id: int = None
     title: str = None
     content: str = ''
-    
-def DB_PATH(DB_NAME):
-    try:
-        DB_NAME = str(DB_NAME)
-        if not DB_NAME.endswith('.db'):
-            return (DB_NAME + '.db')
-        else:
-            return (DB_NAME)
-    except:
-        raise ValueError("Did not enter a valid file name.")
 
 class Database:
     def __init__(self, DB_NAME):
-        self.DB_NAME = DB_PATH(DB_NAME)
+        self.DB_NAME = self.__DB_PATH__(DB_NAME)
         self.conn = sqlite3.connect(self.DB_NAME)
         self.TABLE_NAME = "note"
         self.CREATE_ACTION = f'CREATE TABLE IF NOT EXISTS {self.TABLE_NAME} (id INTEGER PRIMARY KEY, title STRING, content STRING NOT NULL);'
@@ -52,3 +42,13 @@ class Database:
         self.DELETE_ACTION = f"DELETE FROM {self.TABLE_NAME} WHERE id = {note_id};"
         self.conn.execute(self.DELETE_ACTION)
         self.conn.commit()
+        
+    def __DB_PATH__(self, DB_NAME):
+        try:
+            DB_NAME = str(DB_NAME)
+            if not DB_NAME.endswith('.db'):
+                return (DB_NAME + '.db')
+            else:
+                return (DB_NAME)
+        except:
+            raise ValueError("Did not enter a valid file name.")

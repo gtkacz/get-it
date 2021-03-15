@@ -3,6 +3,7 @@ from pathlib import Path
 from utils import extract_route, read_file, build_response
 from views import index
 import webbrowser
+from localStoragePy import localStoragePy
 
 CUR_DIR = Path(__file__).parent
 SERVER_HOST = '0.0.0.0'
@@ -23,8 +24,10 @@ while True:
 
     request = client_connection.recv(1024).decode(encoding = 'utf-8')
     
-    if request.startswith('POST'):
-        print(request)
+    #localStorage = localStoragePy('get-it', 'json')
+    
+    # if request.startswith('POST'):
+    #     print(request)
 
     if request:
         route = extract_route(request)

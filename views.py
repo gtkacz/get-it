@@ -1,5 +1,6 @@
 from urllib.parse import unquote_plus
-from utils import *
+#from utils import *
+from utils import load_template, build_response, process_post, write_on_db
 from database import Database, Note
 
 def request_params(request):
@@ -15,7 +16,7 @@ def request_params(request):
 
 def index(request):
     note_template = load_template('components/note.html')
-    dados=Database('notes')
+    dados=Database('teste')
     db_notes=dados.get_all()
     
     if request.startswith('GET'):
@@ -31,31 +32,9 @@ def index(request):
     elif request.startswith('POST'):
         params = request_params(request)
         
-        is_restore=False
-        is_delete=False
-        is_edit=False
-        
-        if (request.split()[-1]).split('&')[-1]=='restore-db=restore-db':
-            is_restore=True
-            
-        if ((request.split()[-1]).split('&')[-1]).split('=')[0]=='delete_note_id':
-            is_delete=True
-            note_id=((request.split()[-1]).split('&')[-1]).split('=')[1]
-            dados.delete(note_id)
-            
-        if ((request.split()[-1]).split('&')[-1]).split('=')[0]=='edit_note_id':
-            is_edit=True
-            note_id=((request.split()[-1]).split('&')[-1]).split('=')[1]
-            note_title=unquote_plus((request.split()[-1]).split('&')[0]).split('=')[1]
-            note_content=unquote_plus((request.split()[-1]).split('&')[1]).split('=')[1]
-            
-            edit=Note()
-            edit.id=note_id
-            edit.title=note_title
-            edit.content=note_content
-            dados.update(edit)
+        is_restore, is_delete, is_edit = process_post(request, Database('teste'))
         
         if (is_restore == False) and (is_delete == False) and (is_edit == False):
-            write_on_db(params, 'notes')
+            write_on_db(params, 'teste')
             
         return build_response(code = 303, reason = 'See Other', headers = 'Location: /')

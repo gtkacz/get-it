@@ -2,7 +2,7 @@ from database import Database, Note
 from utils import load_data
 import os
 
-def populate_db(DB_NAME):
+def populate_db(DB_NAME='notes'):
     if DB_NAME.endswith('.db'):
         DB_NAME = DB_NAME[:-3]
         
@@ -20,4 +20,4 @@ def populate_db(DB_NAME):
         annotation.content = list(i.values())[1]
         db.add(annotation)
         
-populate_db('notes')
+populate_db('teste')

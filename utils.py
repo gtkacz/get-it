@@ -1,11 +1,12 @@
 from pathlib import Path
 import json, os
 from database import Database, Note
-#from populate_database import populate_db
+from localStoragePy import localStoragePy
+from urllib.parse import unquote_plus
 
 def extract_route(request):
     if request.startswith('POST'):
-        request=restore_db(request)
+        request=restore_db(request, 'teste')
     if request != '':
         return request.split()[1][1:]
     else:
@@ -113,7 +114,7 @@ def write_on_db(data, DB_NAME):
 def delete_from_db(id, db_name):
     pass
 
-def populate_db(DB_NAME):
+def populate_db(DB_NAME='notes'):
     if DB_NAME.endswith('.db'):
         DB_NAME = DB_NAME[:-3]
         
@@ -140,3 +141,30 @@ def restore_db(request, db_name='notes'):
         return ''
     else:
         return request
+    
+def process_post(request, db=Database('notes')):
+    is_restore=False
+    is_delete=False
+    is_edit=False
+    
+    if (request.split()[-1]).split('&')[-1]=='restore-db=restore-db':
+        is_restore=True
+            
+    if ((request.split()[-1]).split('&')[-1]).split('=')[0]=='delete_note_id':
+        is_delete=True
+        note_id=((request.split()[-1]).split('&')[-1]).split('=')[1]
+        db.delete(note_id)
+        
+    if (((request.split()[-1]).split('&')[-1]).split('=')[0]).split('-')[0]=='edit_note_id':
+        is_edit=True
+    #     note_id=((request.split()[-1]).split('&')[-1]).split('=')[1]
+    #     note_title=unquote_plus((request.split()[-1]).split('&')[0]).split('=')[1]
+    #     note_content=unquote_plus((request.split()[-1]).split('&')[1]).split('=')[1]
+        
+    #     edit=Note()
+    #     edit.id=note_id
+    #     edit.title=note_title
+    #     edit.content=note_content
+    #     db.update(edit)
+        
+    return is_restore, is_delete, is_edit

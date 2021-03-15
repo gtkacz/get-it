@@ -253,6 +253,11 @@ a:focus {
   /* position: relative; */
   justify-self: center;
   align-self: center;
+  text-align: center;
+}
+
+.card-title:focus {
+  outline:0;
 }
 
 .card-underline{
@@ -280,7 +285,12 @@ a:focus {
   /* color:#262626; */
   align-self:center;
   cursor: default;
-} 
+  text-align: center;
+}
+
+.card-content:focus {
+  outline:0;
+}
 
 /* Você pode usar o CSS comentado abaixo, se ajudar */
 /* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
@@ -476,17 +486,42 @@ a:focus {
   text-decoration: none;
   text-overflow: ellipsis;
   text-emphasis-color: black;
-  height: 2.5vw;
+  width: 100%;
+  text-align: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  resize:none;
+  overflow:scroll;
 }
+
 .edit-form-card-content{
   background: transparent;
   border: none !important;
   justify-self: center;
   align-self: center;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  text-emphasis-color: black;
   /* height: 4.5vw; */
+  text-align: center;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  resize:none;
+  overflow:scroll;
+}
+
+.edit-form{
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.edit-form-card-content::-webkit-scrollbar {
+  display: none;
+}
+
+.edit-form-card-title::-webkit-scrollbar {
+  display: none;
 }
 
 .card-rotation-1  {background-color: #ead3a7}
