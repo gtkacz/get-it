@@ -43,11 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
 function editNote(id) {
 	var title = document.getElementsByName('id_title-' + id)[0].innerText
 	var content = document.getElementsByName('id_content-' + id)[0].innerText
-	// var formButton = document.getElementsByName("send-button")[0].innerText = "Atualizar"
-  console.log("criou variaveis")
-	// document.getElementsByName('id-hidden')[0].value = id
+	document.getElementsByName("form-btn")[0].innerText = "Atualizar"
+	document.getElementsByName('edit_note_id')[0].value = id
 	document.getElementsByName('titulo')[0].value = title
-  console.log("substituiu o texto")
 	document.getElementsByName('detalhes')[0].value = content
-  console.log("substituiu o conteudo")
 }

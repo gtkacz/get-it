@@ -26,8 +26,8 @@ while True:
     
     #localStorage = localStoragePy('get-it', 'json')
     
-    # if request.startswith('POST'):
-    #     print(request)
+    if request.startswith('POST'):
+        print(request)
 
     if request:
         route = extract_route(request)

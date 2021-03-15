@@ -155,16 +155,20 @@ def process_post(request, db=Database('notes')):
         note_id=((request.split()[-1]).split('&')[-1]).split('=')[1]
         db.delete(note_id)
         
-    if (((request.split()[-1]).split('&')[-1]).split('=')[0]).split('-')[0]=='edit_note_id':
+    if ((request.split()[-1]).split('=')[0])=='edit_note_id':
         is_edit=True
+        note_id=(((request.split()[-1]).split('=')[1]).split('&')[0])
+        note_title=unquote_plus(((request.split()[-1]).split('&')[1]).split('=')[1])
+        note_content=unquote_plus(((request.split()[-1]).split('&')[2]).split('=')[1])
+        
     #     note_id=((request.split()[-1]).split('&')[-1]).split('=')[1]
     #     note_title=unquote_plus((request.split()[-1]).split('&')[0]).split('=')[1]
     #     note_content=unquote_plus((request.split()[-1]).split('&')[1]).split('=')[1]
         
-    #     edit=Note()
-    #     edit.id=note_id
-    #     edit.title=note_title
-    #     edit.content=note_content
-    #     db.update(edit)
+        edit=Note()
+        edit.id=note_id
+        edit.title=note_title
+        edit.content=note_content
+        db.update(edit)
         
     return is_restore, is_delete, is_edit
