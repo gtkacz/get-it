@@ -151,12 +151,11 @@ def process_post(request, db=Database('notes')):
         is_restore=True
             
     if ((request.split()[-1]).split('&')[-1]).split('=')[0]=='delete_note_id':
-        is_delete=True
         note_id=((request.split()[-1]).split('&')[-1]).split('=')[1]
         db.delete(note_id)
+        is_delete=True
         
     if ((request.split()[-1]).split('=')[0])=='edit_note_id':
-        is_edit=True
         note_id=(((request.split()[-1]).split('=')[1]).split('&')[0])
         note_title=unquote_plus(((request.split()[-1]).split('&')[1]).split('=')[1])
         note_content=unquote_plus(((request.split()[-1]).split('&')[2]).split('=')[1])
@@ -172,5 +171,8 @@ def process_post(request, db=Database('notes')):
             db.update(edit)
         except:
             pass
+        
+        if note_id != None:
+            is_edit=True
         
     return is_restore, is_delete, is_edit
